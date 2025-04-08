@@ -48,21 +48,23 @@ const intermediateQuestions = [
     },
 ];
 
-const correctAns  = new Audio("../correct.mp3")
-const incorrectAns  = new Audio("../incorrect.mp3")
-const quizDone  = new Audio("../yay.mp3")
+const correctAns  = new Audio("./correct.mp3")
+const incorrectAns  = new Audio("./incorrect.mp3")
+const quizDone  = new Audio("audio/yay.mp3")
 
 /****************Referenced cached elements**************/
+const bodyElm = document.querySelector("body")
 const beginnerElm = document.querySelector("#beginner");
 const intermediateElm = document.querySelector("#intermediate");
 const landingElm = document.querySelector(".landing-page");
-const quizPg = document.querySelector(".quiz-page");
+const quizPgElm = document.querySelector(".quiz-page");
+const toggleBtnElm = document.querySelector("#toggleLight")
 
 const restartQuiz = () => {
      currentQuestion = 0;
      score = 0;
      landingElm.classList.remove("hide");
-     quizPg.classList.remove("show");
+     quizPgElm.classList.remove("show");
 }
 const initState = (difficulty) => {
     let questionToUse;
@@ -73,12 +75,12 @@ const initState = (difficulty) => {
         questionToUse = intermediateQuestions;
     }
 
-    quizPg.innerHTML = "";
+    quizPgElm.innerHTML = "";
 
     const h2Elm = document.createElement("h2");
     h2Elm.id = "question";
     h2Elm.textContent = questionToUse[currentQuestion].question;
-    quizPg.appendChild(h2Elm);
+    quizPgElm.appendChild(h2Elm);
 
     questionToUse[currentQuestion].options.forEach(option => {
         const btnElm = document.createElement("button");
@@ -92,7 +94,7 @@ const initState = (difficulty) => {
             
             if (ansofuser === questionToUse[currentQuestion].answer) {
                 btnElm.style.backgroundColor = "green";
-                correctAns.volume = 0.3; 
+                correctAns.volume = 1; 
                 correctAns.play();
                 score++;
             } else {
@@ -118,7 +120,7 @@ const initState = (difficulty) => {
                     }
 
 
-                    quizPg.innerHTML = `
+                    quizPgElm.innerHTML = `
                     <h2>Quiz Completed!</h2>
                     <p>Your score: ${score} out of ${questionToUse.length}</p> 
                     <p>You ${result}!!</P>
@@ -126,25 +128,33 @@ const initState = (difficulty) => {
                     
                     quizDone.volume = 0.1; 
                     quizDone.play();
-                    quizPg.querySelector('#restart-btn').addEventListener('click', restartQuiz);
+                    quizPgElm.querySelector('#restart-btn').addEventListener('click', restartQuiz);
                 }, 1500);
             }
         });
-        quizPg.appendChild(btnElm);
+        quizPgElm.appendChild(btnElm);
     });
     
     const questionCounter = document.createElement("h4");
     questionCounter.id = "current-question";
     questionCounter.textContent = `${currentQuestion + 1} of ${questionToUse.length} questions`;
-    quizPg.appendChild(questionCounter);
+    quizPgElm.appendChild(questionCounter);
 }
 
 const handleStart = (event) => {
     difficulty = event.target.id
     landingElm.classList.add("hide");
-    quizPg.classList.add("show");
+    quizPgElm.classList.add("show");
     initState(difficulty);
 }
 
+const toggleLight = () => {
+    if(toggleBtnElm.checked == true){
+        bodyElm.classList.toggle("light-mode")
+    }else{
+        bodyElm.classList.remove("light-mode")
+    }
+}
 beginnerElm.addEventListener("click", handleStart);
 intermediateElm.addEventListener("click", handleStart)
+toggleBtnElm.addEventListener("click", toggleLight)
