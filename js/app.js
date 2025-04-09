@@ -48,9 +48,10 @@ const intermediateQuestions = [
     },
 ];
 
-const correctAns  = new Audio("./correct.mp3")
-const incorrectAns  = new Audio("./incorrect.mp3")
-const quizDone  = new Audio("audio/yay.mp3")
+const correctAns  = new Audio("Audio/correct.mp3")
+const incorrectAns  = new Audio("Audio/incorrect.mp3")
+const userWon  = new Audio("Audio/yay.mp3")
+const userLost = new Audio("Audio/fail.mp3")
 
 /****************Referenced cached elements**************/
 const bodyElm = document.querySelector("body")
@@ -91,10 +92,13 @@ const initState = (difficulty) => {
         btnElm.addEventListener("click", (event) => {
 
             const ansofuser = event.target.textContent;
-            
+
+            const buttons = document.querySelectorAll(".btn-option");
+            buttons.forEach(button => button.disabled = true);
+
             if (ansofuser === questionToUse[currentQuestion].answer) {
                 btnElm.style.backgroundColor = "green";
-                correctAns.volume = 1; 
+                correctAns.volume = 0.6; 
                 correctAns.play();
                 score++;
             } else {
@@ -103,31 +107,35 @@ const initState = (difficulty) => {
                 incorrectAns.play();
             }
 
+            
             if (currentQuestion < questionToUse.length - 1) { 
                 setTimeout(() => {
                     currentQuestion++;  
+                    console.log("Moving to question:", currentQuestion); 
                     initState(difficulty);  
-                }, 1500); 
+                }, 1500); //set time out can be used so in the future if I add why an answer is correct or wrong user can see why
             } else {
-                // Quiz ended
                 setTimeout(() => {
                     let result;
                     if (score >= 2){
                         result = "win"
-                        //we can add something for confetti here
+                        userWon.volume = 0.1; 
+                        userWon.play();
+                        confetti();
                     }else{
                         result = "lose"
+                        userLost.volume = 0.1; 
+                        userLost.play();
                     }
 
 
                     quizPgElm.innerHTML = `
                     <h2>Quiz Completed!</h2>
-                    <p>Your score: ${score} out of ${questionToUse.length}</p> 
-                    <p>You ${result}!!</P>
+                    <h3>Your score: ${score} out of ${questionToUse.length}</h3> 
+                    <h3>You ${result}!!</h3>
                     <button class="btn-catg" id="restart-btn">restart</button>`;
                     
-                    quizDone.volume = 0.1; 
-                    quizDone.play();
+                    
                     quizPgElm.querySelector('#restart-btn').addEventListener('click', restartQuiz);
                 }, 1500);
             }
