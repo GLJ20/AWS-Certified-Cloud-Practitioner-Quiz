@@ -175,6 +175,7 @@ input:checked + .toggle-track:before {
     -ms-transform: translateX(26px);
     transform: translateX(25px);
     content: "☀️";
+    left: 4px;
 }
   
 .toggle-track.round {

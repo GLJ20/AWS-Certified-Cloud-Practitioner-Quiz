@@ -1,6 +1,7 @@
 /************************Variables************************/
 let currentQuestion = 0;
 let score = 0;
+let difficulty;
 
 /************************Constant*************************/
 const beginnerQuestions = [
@@ -61,6 +62,7 @@ const landingElm = document.querySelector(".landing-page");
 const quizPgElm = document.querySelector(".quiz-page");
 const toggleBtnElm = document.querySelector("#toggleLight")
 
+/*************************Functions************************/
 const restartQuiz = () => {
      currentQuestion = 0;
      score = 0;
@@ -128,13 +130,11 @@ const initState = (difficulty) => {
                         userLost.play();
                     }
 
-
                     quizPgElm.innerHTML = `
                     <h2>Quiz Completed!</h2>
                     <h3>Your score: ${score} out of ${questionToUse.length}</h3> 
                     <h3>You ${result}!!</h3>
                     <button class="btn-catg" id="restart-btn">restart</button>`;
-                    
                     
                     quizPgElm.querySelector('#restart-btn').addEventListener('click', restartQuiz);
                 }, 1500);
