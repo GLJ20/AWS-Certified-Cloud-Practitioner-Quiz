@@ -1,7 +1,6 @@
 /************************Variables************************/
 let currentQuestion = 0;
 let score = 0;
-let difficulty;
 
 /************************Constant*************************/
 const beginnerQuestions = [
@@ -69,7 +68,7 @@ const restartQuiz = () => {
      landingElm.classList.remove("hide");
      quizPgElm.classList.remove("show");
 }
-const initState = (difficulty) => {
+const gameFlow = (difficulty) => {
     let questionToUse;
 
     if (difficulty == "beginner") {
@@ -114,8 +113,8 @@ const initState = (difficulty) => {
                 setTimeout(() => {
                     currentQuestion++;  
                     console.log("Moving to question:", currentQuestion); 
-                    initState(difficulty);  
-                }, 1500); //set time out can be used so in the future if I add why an answer is correct or wrong user can see why
+                    gameFlow(difficulty);  
+                }, 1500); 
             } else {
                 setTimeout(() => {
                     let result;
@@ -153,7 +152,7 @@ const handleStart = (event) => {
     difficulty = event.target.id
     landingElm.classList.add("hide");
     quizPgElm.classList.add("show");
-    initState(difficulty);
+    gameFlow(difficulty);
 }
 
 const toggleLight = () => {
