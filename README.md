@@ -6,7 +6,7 @@ AWS-Certified-Cloud-Practitioner-Quiz is an interactive quiz game designed to he
 
 I chose this game because cloud computing is a growing field, and this quiz offers a fun, engaging way to study for the certification.
 ### Getting Started: 
-You can play the game here:
+You can play the game here: [Game Link](https://glj20.github.io/AWS-Certified-Cloud-Practitioner-Quiz/)
 
 Instructions:
 
@@ -18,7 +18,7 @@ Instructions:
 
 * Try to get as many correct answers as possible!
 
-Planning material
+Planning material: Find it [here](./Planning%20material.txt)
 ### Attributions:
 * **Game Logic Inspiration:** [Create a Quiz App with Timer using HTML, CSS, and JavaScript](https://www.geeksforgeeks.org/create-a-quiz-app-with-timer-using-html-css-and-javascript/) 
 * **Sound Effects:** [pixabay](https://pixabay.com/)
