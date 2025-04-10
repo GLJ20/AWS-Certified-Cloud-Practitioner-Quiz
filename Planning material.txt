@@ -1,0 +1,53 @@
+User Stories 
+As a user, I want to see a landing page so that I know where to start.
+
+As a user, I want to select between different difficulty levels (Beginner / Intermediate) so I can choose my preferred challenge.
+
+As a user, I want to see clear instructions on how the game works so that I understand how to play.
+
+As a user, I want to see clearly labeled buttons that describe exactly what they do so that I can navigate easily.
+
+As a user, I want the question display to clearly show the question and options so that I can read and select my answer easily.
+
+As a user, I want immediate feedback after selecting an answer so that I know if I was correct.
+
+As a user, I want to see my final score and a message displaying if I won or not so that I know how well I did.
+
+As a user, I want to be able to reset or start a new game so that I can play again.
+
+As a user, I want to be able to toggle between light and dark mode to suit my visual preferences.
+
+
+Pseudocode 
+Define any variables used to track the state of the game:
+currentQuestion
+score
+
+Define required constants:
+beginnerquestions 
+intermediateQuestions
+audio constants:
+correctAnswer
+incorrectAnswer
+userWon
+userLost
+
+define referenced cached elements:
+body element
+beginner button element
+intermediate button element
+landing page element
+quiz page element 
+toggle switch element
+
+
+functions:
+handle selected category of the user or start of the game
+game flow
+restart game
+
+event listeners:
+event listener click on the category buttons(each)
+event listener click on the restart button
+event listener click on the answer options
+event listener click on the toggle switch
