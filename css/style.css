@@ -1,14 +1,11 @@
+/* Apply border-box sizing to all elements for consistent sizing calculations */
 * {
     box-sizing: border-box;
   }
-:root {
-    color-scheme: light dark;
-}
+
 body {
     background-color: black;
     color: white;
-    color: light-dark(white, black);
-    background-color: light-dark(black, white);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -31,12 +28,12 @@ body {
    align-items: center;
    background-color: #333;
    border-radius: 5px;
-   box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+   box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); /* Glow effect for dark mode */
    max-width: 700px;
    width: 100%;
    padding: 20px;
    text-align: center;
-   transition: all 1s;
+   transition: all 1s; /* Smooth theme transition */
 }
 .landing-page ul {
    text-align: left;
@@ -48,6 +45,7 @@ body {
    margin: 10px 0;
    line-height: 1.5;
 }
+/*Light mode styling to apply for body, landing page and quiz page*/
 .light-mode{
     background-color: white;
     color: black;
@@ -63,11 +61,12 @@ body {
     background-color: #FF9900;
     color: white;
   }
-  .light-mode .quiz-page{
+.light-mode .quiz-page{
     background-color: #f5f5f5;
     color: black;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
+}
+/*Button styling*/
 .btn-catg {
     background-color: #FF9900;
     color: white;
@@ -89,8 +88,9 @@ body {
 .hide {
     display: none;
 }
+/* Quiz Page Layout */
 .quiz-page {
-    display: none;
+    display: none; /* Hidden by default */
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -109,7 +109,7 @@ body {
     align-self: flex-start;
     margin-bottom: 20px;
 }
-
+/* Answer Options */
 .btn-option {
     width: 100%;
     background-color: #FF9900;
@@ -125,9 +125,10 @@ body {
     background-color: #ff9900c9;
 }
 #current-question {
-    align-self: flex-start;
+    align-self: flex-start; /* left-align in flex container */
     margin-top: 20px;
 }
+/*CSS for toggle switch*/
 .toggle-Btn {
     position: relative;
     display: inline-block;
@@ -135,6 +136,7 @@ body {
     height: 34px;
     top: 20px;
 }
+/*Make the checkbox input invisible*/
 .toggle-Btn input { 
     opacity: 0;
     width: 0;
@@ -149,8 +151,9 @@ body {
     bottom: 0;
     background-color: #FF9900;
     transition: .3s;
+    
 }
-  
+/* Toggle thumb with emoji icons */
 .toggle-track:before {
     position: absolute;
     content: "🌙";
@@ -169,7 +172,7 @@ input:checked + .toggle-track {
 input:focus + .toggle-track {
     box-shadow: 0 0 1px black;
 }
-  
+/* Toggle checked state (light mode) */
 input:checked + .toggle-track:before {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
@@ -184,4 +187,5 @@ input:checked + .toggle-track:before {
   
 .toggle-track.round:before {
     border-radius: 50%;
+    left: 4px;
 }
