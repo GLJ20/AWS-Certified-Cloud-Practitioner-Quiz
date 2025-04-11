@@ -6,7 +6,7 @@ AWS-Certified-Cloud-Practitioner-Quiz is an interactive quiz game designed to he
 
 I chose this game because cloud computing is a growing field, and this quiz offers a fun, engaging way to study for the certification.
 ### Getting Started: 
-You can play the game here: [Game Link](https://glj20.github.io/AWS-Certified-Cloud-Practitioner-Quiz/)
+You can play the game here: [Live Demo](https://glj20.github.io/AWS-Certified-Cloud-Practitioner-Quiz/)
 
 Instructions:
 
@@ -21,6 +21,7 @@ Instructions:
 Planning material: Find it [here](./Planning%20material.txt)
 ### Attributions:
 * **Game Logic Inspiration:** [Create a Quiz App with Timer using HTML, CSS, and JavaScript](https://www.geeksforgeeks.org/create-a-quiz-app-with-timer-using-html-css-and-javascript/) 
+* **Confetti Animation:** [canvas-confetti](https://github.com/catdad/canvas-confetti) ([MIT License](https://github.com/catdad/canvas-confetti/blob/master/LICENSE))
 * **Sound Effects:** [pixabay](https://pixabay.com/)
 * **Question Content:** Questions were generated with the help of [ChatGPT](https://chat.openai.com/)
 * **Toggle Switch:** The toggle switch design was adapted from [W3Schools](https://www.w3schools.com/howto/howto_css_switch.asp)
@@ -35,3 +36,6 @@ Planning material: Find it [here](./Planning%20material.txt)
 * **Save High Scores:** Implement functionality to save and display high scores using localStorage or connect to a backend database.
 * **Manual Navigation Option:** Introduce a "Next" button to let users control the pace of the quiz, for a relaxed play mode without timers.
 * **Add Answer Explanations:** After each answer is given, show an explanation to help the user understand why the answer is correct.
+* **Multiple Play Modes:**
+  - **Relaxed Mode:** No timer + manual "Next" button navigation  
+  - **Timed Mode:** Challenge mode with countdown timer 
